@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jurassic Clash — 3D Dinosaur Fight Simulator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/dino.css" />
+</head>
+<body>
+  <div id="game-container"></div>
+  <div id="load-error"></div>
+  <div id="loading" class="loading hidden">
+    <div class="loading-inner">
+      <div class="loading-logo">🦖</div>
+      <div class="loading-title">LOADING MODELS</div>
+      <div class="loading-bar"><div id="loading-fill" class="loading-fill"></div></div>
+      <div id="loading-text" class="loading-text">Fetching dinosaur assets…</div>
+    </div>
+  </div>
+
+  <!-- Main Menu -->
+  <div id="menu" class="screen menu">
+    <div class="menu-bg"></div>
+    <div class="menu-content">
+      <div class="menu-brand">
+        <div class="menu-logo">🦖</div>
+        <h1 class="menu-title">JURASSIC CLASH</h1>
+        <p class="menu-sub">JURASSIC WORLD · SPECTATOR PARK</p>
+      </div>
+      <button id="play-btn" class="btn-primary">ENTER THE ARENA</button>
+      <button id="lab-btn" class="btn-secondary">🧬 GENETIC LAB</button>
+      <button id="quick-btn" class="btn-secondary">QUICK RANDOM BATTLE</button>
+      <p class="menu-hint">Hybrid dinosaurs · Ocean lagoon · Live visitors</p>
+    </div>
+  </div>
+
+  <!-- Dino Selection -->
+  <div id="select" class="screen select hidden">
+    <div class="select-header">
+      <h2>PICK YOUR FIGHTERS</h2>
+      <div class="select-slots">
+        <div class="slot player-slot">
+          <span class="slot-label">FIGHTER 1</span>
+          <div id="player-pick" class="slot-pick empty">Click a dinosaur</div>
+        </div>
+        <div class="vs-badge">VS</div>
+        <div class="slot enemy-slot">
+          <span class="slot-label">FIGHTER 2</span>
+          <div id="enemy-pick" class="slot-pick empty">Click a dinosaur</div>
+        </div>
+      </div>
+    </div>
+    <div id="dino-grid" class="dino-grid"></div>
+    <div class="select-footer">
+      <button id="random-btn" class="btn-secondary">RANDOM MATCH</button>
+      <button id="fight-btn" class="btn-primary" disabled>FIGHT!</button>
+    </div>
+  </div>
+
+  <!-- Genetic Lab -->
+  <div id="lab" class="screen lab hidden">
+    <div class="lab-panel">
+      <h2>🧬 INGEN GENETIC LAB</h2>
+      <p class="lab-sub">Combine DNA · Mutate · Create hybrid dinosaurs</p>
+      <div class="lab-parents">
+        <div class="lab-slot">
+          <span class="slot-label">PARENT A</span>
+          <div id="lab-parent-a" class="slot-pick empty">Select first parent</div>
+        </div>
+        <div class="lab-plus">+</div>
+        <div class="lab-slot">
+          <span class="slot-label">PARENT B</span>
+          <div id="lab-parent-b" class="slot-pick empty">Select second parent</div>
+        </div>
+      </div>
+      <div class="mutation-wrap">
+        <label>MUTATION LEVEL: <span id="mutation-val">50%</span></label>
+        <input type="range" id="mutation-slider" min="0" max="100" value="50" />
+        <div class="mut-labels"><span>Stable</span><span>Volatile</span><span>Chaos</span></div>
+      </div>
+      <div id="lab-preview" class="lab-preview"></div>
+      <button id="create-hybrid-btn" class="btn-primary" disabled>CREATE HYBRID</button>
+      <div id="lab-result" class="lab-result hidden"></div>
+      <div class="lab-created">
+        <h3>YOUR HYBRIDS</h3>
+        <div id="hybrid-list"></div>
+      </div>
+      <div id="lab-dino-grid" class="dino-grid lab-grid"></div>
+      <div class="lab-footer">
+        <button id="lab-back-btn" class="btn-secondary">MAIN MENU</button>
+        <button id="lab-fight-btn" class="btn-primary">FIGHT WITH HYBRIDS</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fight HUD -->
+  <div id="hud" class="hud hidden">
+    <div class="hud-top">
+      <div class="fighter-bar player-bar">
+        <span id="player-name" class="fighter-name">T-Rex</span>
+        <div class="hp-wrap">
+          <div id="player-hp" class="hp-fill"></div>
+        </div>
+        <span id="player-hp-text" class="hp-text">120 / 120</span>
+      </div>
+      <div class="timer-wrap">
+        <div id="round-timer">0:00</div>
+        <div class="round-label">SPECTATING</div>
+      </div>
+      <div class="fighter-bar enemy-bar">
+        <span id="enemy-name" class="fighter-name">Raptor</span>
+        <div class="hp-wrap">
+          <div id="enemy-hp" class="hp-fill"></div>
+        </div>
+        <span id="enemy-hp-text" class="hp-text">70 / 70</span>
+      </div>
+    </div>
+
+    <div id="combat-log" class="combat-log"></div>
+    <div id="damage-flash" class="damage-flash"></div>
+    <div class="cam-hint">
+      <span><kbd>Drag</kbd> Rotate</span>
+      <span><kbd>Scroll</kbd> Zoom</span>
+      <span><kbd>Right-drag</kbd> Pan</span>
+      <span><kbd>WASD</kbd> Move</span>
+    </div>
+  </div>
+
+  <!-- Victory Screen -->
+  <div id="victory" class="screen victory hidden">
+    <div class="victory-content">
+      <div id="victory-icon" class="victory-icon">🏆</div>
+      <h2 id="victory-title">VICTORY</h2>
+      <p id="victory-msg">The T-Rex reigns supreme!</p>
+      <div class="victory-stats" id="victory-stats"></div>
+      <div class="victory-actions">
+        <button id="rematch-btn" class="btn-primary">REMATCH</button>
+        <button id="menu-btn" class="btn-secondary">MAIN MENU</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dino Info Tooltip -->
+  <div id="dino-tooltip" class="dino-tooltip hidden"></div>
+
+  <script type="importmap">
+  { "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+  }}
+  </script>
+  <script type="module" src="/static/js/dino.js?v=13"></script>
+</body>
+</html>

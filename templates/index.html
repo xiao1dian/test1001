@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DebateResearcher — Professional Debate Research Platform</title>
+  <meta name="description" content="DebateResearcher aggregates cited sources and structured argument blocks from Wikipedia, Britannica, Stanford, Harvard, Yale, Cornell, and Brookings for competitive debate preparation." />
+  <meta name="keywords" content="DebateResearcher, debate research, debate sources, speech builder, Lincoln-Douglas, Public Forum, parliamentary debate" />
+  <meta name="author" content="DebateResearcher" />
+  <link rel="canonical" href="{{ site_url }}/" />
+  <meta property="og:url" content="{{ site_url }}/" />
+  <meta property="og:title" content="DebateResearcher — Professional Debate Research" />
+  <meta property="og:description" content="Cited sources and structured speech materials for competitive debate." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="DebateResearcher" />
+  <meta property="og:image" content="{{ site_url }}/static/img/logo.png" />
+  <link rel="icon" type="image/png" href="/static/img/logo.png" />
+  <link rel="apple-touch-icon" href="/static/img/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-brand">
+        <img src="/static/img/logo.png" alt="" width="36" height="36" />
+        <span>DebateResearcher</span>
+      </a>
+      <span class="nav-tag">Academic Research Platform</span>
+      <span class="nav-local-hint" id="local-url-hint" hidden></span>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>Evidence-based debate research,<br />delivered with citations.</h1>
+      <p class="hero-sub">Aggregate authoritative sources, structured argument blocks, and format-specific speeches for Lincoln-Douglas, Public Forum, Parliamentary, and Policy debate.</p>
+      <div class="trust-bar">
+        <span>Wikipedia</span>
+        <span>Britannica</span>
+        <span>Stanford</span>
+        <span>Harvard</span>
+        <span>Yale</span>
+        <span>Cornell</span>
+        <span>Brookings</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <div class="main-column">
+
+      <section class="search-panel card">
+        <form id="research-form" class="search-form">
+          <label for="topic" class="field-label">Resolution or debate topic</label>
+          <div class="input-row">
+            <input
+              type="text"
+              id="topic"
+              name="topic"
+              placeholder="Enter your debate resolution…"
+              autocomplete="off"
+              required
+            />
+            <button type="submit" id="submit-btn" class="btn-primary">
+              <span class="btn-label">Begin Research</span>
+              <span class="btn-spinner hidden" aria-hidden="true"></span>
+            </button>
+          </div>
+          <div class="options-row">
+            <label for="language" class="field-label-inline">Language</label>
+            <select id="language" name="language">
+              <option value="auto">Auto-detect</option>
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="fr">Français</option>
+              <option value="de">Deutsch</option>
+              <option value="zh">中文</option>
+              <option value="ja">日本語</option>
+              <option value="ko">한국어</option>
+              <option value="ar">العربية</option>
+              <option value="pt">Português</option>
+              <option value="ru">Русский</option>
+              <option value="hi">हिन्दी</option>
+            </select>
+          </div>
+        </form>
+      </section>
+
+      <div id="loading-panel" class="loading-panel card hidden" aria-live="polite">
+        <div class="loading-spinner"></div>
+        <p class="loading-title">Conducting research</p>
+        <p id="loading-step" class="loading-step">Initializing…</p>
+        <div class="loading-bar"><div id="loading-bar-fill" class="loading-bar-fill"></div></div>
+        <p class="loading-detail">Retrieving sources from academic and encyclopedic databases</p>
+      </div>
+
+      <div id="error-banner" class="error-banner hidden" role="alert"></div>
+
+      <section id="results" class="results hidden">
+        <div class="results-header card">
+          <p class="results-label">Research results</p>
+          <h2 id="results-title"></h2>
+          <div class="badge-row">
+            <span id="results-lang" class="meta-badge"></span>
+            <span id="results-count" class="meta-badge"></span>
+            <span id="results-args" class="meta-badge"></span>
+          </div>
+          <div id="institution-badges" class="institution-badges"></div>
+        </div>
+
+        <nav class="tab-nav" role="tablist">
+          <button class="tab active" data-tab="overview" role="tab">Overview</button>
+          <button class="tab" data-tab="blocks" role="tab">Research Blocks</button>
+          <button class="tab" data-tab="affirmative" role="tab">Affirmative <span class="tab-count" id="tab-count-aff"></span></button>
+          <button class="tab" data-tab="negative" role="tab">Opposition <span class="tab-count" id="tab-count-neg"></span></button>
+          <button class="tab" data-tab="statistics" role="tab">Statistics <span class="tab-count" id="tab-count-stats"></span></button>
+          <button class="tab" data-tab="sources" role="tab">Sources <span class="tab-count" id="tab-count-sources"></span></button>
+        </nav>
+
+        <div class="tab-panels card">
+          <article id="panel-overview" class="tab-panel active" role="tabpanel">
+            <div id="overview-content" class="prose-content"></div>
+          </article>
+
+          <article id="panel-blocks" class="tab-panel" role="tabpanel">
+            <div class="panel-toolbar">
+              <p class="panel-desc">Complete research document with bibliography.</p>
+              <div class="toolbar-actions">
+                <button type="button" id="copy-blocks" class="btn-secondary">Copy</button>
+                <button type="button" id="download-blocks" class="btn-secondary">Export .txt</button>
+              </div>
+            </div>
+            <pre id="block-text" class="block-text"></pre>
+          </article>
+
+          <article id="panel-affirmative" class="tab-panel" role="tabpanel">
+            <p class="panel-desc">Affirmative arguments with institutional citations.</p>
+            <ul id="affirmative-list" class="argument-list"></ul>
+          </article>
+
+          <article id="panel-negative" class="tab-panel" role="tabpanel">
+            <p class="panel-desc">Opposition arguments with institutional citations.</p>
+            <ul id="negative-list" class="argument-list"></ul>
+          </article>
+
+          <article id="panel-statistics" class="tab-panel" role="tabpanel">
+            <p class="panel-desc">Quantitative evidence and data points.</p>
+            <ul id="statistics-list" class="argument-list stats-list"></ul>
+          </article>
+
+          <article id="panel-sources" class="tab-panel" role="tabpanel">
+            <div class="source-filter-row">
+              <input type="search" id="source-filter" placeholder="Search sources…" />
+            </div>
+            <ul id="sources-list" class="sources-list"></ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="empty-state" id="empty-state">
+        <div class="empty-card card">
+          <h3>Enter a resolution to begin</h3>
+          <p>Our platform retrieves encyclopedic entries, peer-reviewed research, and policy reports — then structures them into cited argument blocks ready for competitive debate.</p>
+          <p class="try-label">Sample resolutions</p>
+          <div class="example-chips">
+            <button type="button" class="chip" data-topic="Should social media be regulated by governments?">Social media regulation</button>
+            <button type="button" class="chip" data-topic="Should the death penalty be abolished?">Death penalty</button>
+            <button type="button" class="chip" data-topic="Is nuclear energy the future of clean power?">Nuclear energy</button>
+            <button type="button" class="chip" data-topic="Should universal basic income be implemented?">Universal basic income</button>
+            <button type="button" class="chip" data-topic="Should AI be regulated by governments?">AI regulation</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <aside id="speech-sidebar" class="speech-sidebar hidden" aria-label="Speech generator">
+      <div class="sidebar-inner card">
+        <h3 class="sidebar-title">Speech Generator</h3>
+        <p class="sidebar-desc">Real sources + AI-written speeches when your API key is set.</p>
+
+        <div id="ai-status-banner" class="ai-status-banner" role="status">
+          {% if ai_enabled %}
+          <span class="ai-status-dot ai-on"></span>
+          <span>AI Coach active — ChatGPT-quality speeches</span>
+          {% else %}
+          <span class="ai-status-dot ai-off"></span>
+          <span>AI off — add <code>OPENAI_API_KEY</code> to <code>.env</code> (see <code>.env.example</code>)</span>
+          {% endif %}
+        </div>
+
+        <label for="debate-format" class="field-label">Debate format</label>
+        <select id="debate-format" name="debate-format">
+          <option value="ld">Lincoln-Douglas</option>
+          <option value="pf" selected>Public Forum</option>
+          <option value="parli">Parliamentary</option>
+          <option value="policy">Policy / CX</option>
+          <option value="worlds">World Schools</option>
+        </select>
+
+        <label for="speech-type" class="field-label">Speech type</label>
+        <select id="speech-type" name="speech-type"></select>
+
+        <label for="speech-side" class="field-label">Position</label>
+        <select id="speech-side" name="speech-side">
+          <option value="aff">Affirmative / Pro</option>
+          <option value="neg">Negative / Con</option>
+        </select>
+
+        <button type="button" id="generate-speech-btn" class="btn-primary btn-full">Generate Speech</button>
+
+        <div id="speech-output" class="speech-output hidden">
+          <div class="speech-meta">
+            <span id="speech-label" class="speech-label"></span>
+            <span id="speech-stats" class="speech-stats"></span>
+            <span id="speech-enhanced-badge" class="speech-badge hidden"></span>
+          </div>
+          <pre id="speech-text" class="speech-text"></pre>
+          <div class="speech-actions">
+            <button type="button" id="copy-speech-btn" class="btn-secondary">Copy</button>
+            <button type="button" id="download-speech-btn" class="btn-secondary">Export</button>
+            <button type="button" id="feedback-speech-btn" class="btn-secondary btn-accent">Get Feedback</button>
+          </div>
+        </div>
+
+        <div class="feedback-section">
+          <h4 class="feedback-heading">Speech Coach</h4>
+          <p class="sidebar-desc">Paste your own speech or analyze one you generated above.</p>
+          <textarea id="feedback-input" class="feedback-input" rows="5" placeholder="Paste your speech here for coaching feedback…"></textarea>
+          <button type="button" id="analyze-feedback-btn" class="btn-primary btn-full">Analyze My Speech</button>
+          <div id="feedback-output" class="feedback-output hidden"></div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <button type="button" id="mobile-speech-btn" class="mobile-speech-fab hidden" aria-label="Speech generator">Speech Generator</button>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <strong>DebateResearcher</strong>
+        <p>Professional debate research for students and educators.</p>
+      </div>
+      <div class="footer-note">
+        <p>Sources aggregated from publicly available academic and encyclopedic databases. Verify all citations before competitive use.</p>
+        <p class="footer-links"><a href="https://github.com/xiao1dian/debateresearcher" target="_blank" rel="noopener">GitHub</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

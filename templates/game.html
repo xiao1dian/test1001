@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SITELOCK</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/game.css" />
+</head>
+<body>
+  <div id="game-container"></div>
+  <div id="load-error"></div>
+
+  <!-- Menu -->
+  <div id="menu" class="menu">
+    <div class="menu-brand">
+      <div class="menu-title">SITELOCK</div>
+      <div class="menu-sub">BOMB DEFUSAL · 5v5 BOTS</div>
+    </div>
+
+    <div class="side-pick">
+      <button class="side-btn t selected" data-side="t">
+        <span class="side-name">ATTACKERS</span>
+        <span class="side-desc">Plant the charge. Hold the site.</span>
+      </button>
+      <button class="side-btn ct" data-side="ct">
+        <span class="side-name">DEFENDERS</span>
+        <span class="side-desc">Stop the plant. Defuse if it drops.</span>
+      </button>
+    </div>
+
+    <div class="menu-row">
+      <div class="menu-block">
+        <h3>DIFFICULTY</h3>
+        <div id="diff-options" class="chip-row"></div>
+      </div>
+    </div>
+
+    <button id="play-btn" class="play-btn">READY</button>
+    <p class="menu-hint">Click the game to lock the mouse · WASD move · Left click shoot</p>
+    <div class="menu-keys">
+      <span><kbd>B</kbd> Buy</span>
+      <span><kbd>E</kbd> Plant / Defuse</span>
+      <span><kbd>R</kbd> Reload</span>
+      <span><kbd>Ctrl</kbd> Crouch</span>
+      <span><kbd>Shift</kbd> Walk</span>
+      <span><kbd>G</kbd> Drop bomb</span>
+      <span><kbd>Tab</kbd> Scoreboard</span>
+      <span><kbd>Esc</kbd> Menu</span>
+    </div>
+  </div>
+
+  <!-- Buy menu -->
+  <div id="buy-menu" class="buy-menu hidden">
+    <div class="buy-head">
+      <span>BUY MENU</span>
+      <span id="buy-money">$800</span>
+      <span class="buy-timer" id="buy-timer">0:12</span>
+    </div>
+    <div class="buy-grid" id="buy-grid"></div>
+    <p class="buy-foot">Press <kbd>B</kbd> to close · Buys only during freeze time</p>
+  </div>
+
+  <!-- Scoreboard -->
+  <div id="scoreboard" class="scoreboard hidden">
+    <h2>SCOREBOARD</h2>
+    <div class="sb-split">
+      <div>
+        <h3 class="t">ATTACKERS</h3>
+        <table><thead><tr><th>Player</th><th>K</th><th>A</th><th>D</th><th>$</th></tr></thead>
+        <tbody id="sb-t"></tbody></table>
+      </div>
+      <div>
+        <h3 class="ct">DEFENDERS</h3>
+        <table><thead><tr><th>Player</th><th>K</th><th>A</th><th>D</th><th>$</th></tr></thead>
+        <tbody id="sb-ct"></tbody></table>
+      </div>
+    </div>
+  </div>
+
+  <!-- HUD -->
+  <div id="hud" class="hud hidden">
+    <canvas id="radar" width="180" height="180"></canvas>
+
+    <div class="hud-top">
+      <div class="round-score t" id="score-t">0</div>
+      <div class="hud-clock">
+        <div id="match-timer">1:55</div>
+        <div class="round-num" id="round-num">ROUND 1</div>
+      </div>
+      <div class="round-score ct" id="score-ct">0</div>
+    </div>
+
+    <div class="bomb-icon hidden" id="bomb-icon">C4</div>
+    <div class="kill-feed" id="kill-feed"></div>
+
+    <div class="crosshair" id="crosshair">
+      <div class="ch-dot"></div>
+      <div class="ch-line t"></div><div class="ch-line b"></div>
+      <div class="ch-line l"></div><div class="ch-line r"></div>
+    </div>
+    <div class="hitmarker" id="hitmarker"></div>
+
+    <div class="use-prompt hidden" id="use-prompt">HOLD <kbd>E</kbd></div>
+    <div class="channel-bar hidden" id="channel-bar">
+      <div class="channel-fill" id="channel-fill"></div>
+      <span id="channel-label">PLANTING</span>
+    </div>
+
+    <div class="hud-left">
+      <div class="hp-block">
+        <span class="hp-num" id="health-num">100</span>
+        <span class="hp-lab">HP</span>
+      </div>
+      <div class="hp-block armor">
+        <span class="hp-num" id="armor-num">0</span>
+        <span class="hp-lab">AR</span>
+      </div>
+      <div class="money" id="money-num">$800</div>
+    </div>
+
+    <div class="hud-right">
+      <div class="ammo-wrap">
+        <span id="ammo-cur">12</span><span class="ammo-div">/</span><span id="ammo-res">24</span>
+      </div>
+      <div class="wpn-name" id="wpn-name">P9 COMPACT</div>
+      <div class="weapon-bar" id="weapon-bar"></div>
+    </div>
+
+    <div id="damage-vignette" class="damage-vignette"></div>
+    <div id="flash-overlay" class="flash-overlay"></div>
+    <div id="kill-banner" class="kill-banner hidden"></div>
+    <div id="round-banner" class="round-banner hidden"></div>
+    <div id="spec-overlay" class="spec-overlay hidden"><span id="spec-text">YOU ARE DEAD</span></div>
+  </div>
+
+  <script type="importmap">
+  { "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js"
+  }}
+  </script>
+  <script type="module" src="/static/js/game.js?v=9"></script>
+</body>
+</html>

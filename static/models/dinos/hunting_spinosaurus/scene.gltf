@@ -1,0 +1,572 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 1966,
+      "max": [
+        0.6697395443916321,
+        4.345539569854736,
+        8.288926124572754
+      ],
+      "min": [
+        -1.0487395524978638,
+        -0.13991543650627136,
+        -2.903848886489868
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 23592,
+      "componentType": 5126,
+      "count": 1966,
+      "max": [
+        0.9995250701904297,
+        0.9994300603866577,
+        0.9979344010353088
+      ],
+      "min": [
+        -0.9991836547851563,
+        -0.9999552965164185,
+        -0.9971188902854919
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 1966,
+      "max": [
+        0.9999462366104126,
+        0.9998728632926941,
+        0.9999552369117737,
+        1.0
+      ],
+      "min": [
+        -0.9999462366104126,
+        -0.9997324347496033,
+        -0.9965609312057495,
+        -1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 1966,
+      "max": [
+        0.9702200293540955,
+        1.0056899785995483
+      ],
+      "min": [
+        0.0064199999906122684,
+        0.010500013828277588
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 15728,
+      "componentType": 5126,
+      "count": 1966,
+      "max": [
+        0.9702200293540955,
+        1.0056899785995483
+      ],
+      "min": [
+        0.0064199999906122684,
+        0.010500013828277588
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 10266,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 47184,
+      "componentType": 5126,
+      "count": 1488,
+      "max": [
+        0.2591538429260254,
+        2.9837512969970703,
+        -2.389050245285034
+      ],
+      "min": [
+        -0.6381537914276123,
+        1.279516577720642,
+        -5.455156326293945
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 65040,
+      "componentType": 5126,
+      "count": 1488,
+      "max": [
+        0.999670147895813,
+        0.9999619722366333,
+        0.9893198013305664
+      ],
+      "min": [
+        -1.0,
+        -0.9997071027755737,
+        -0.9997833967208862
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 31456,
+      "componentType": 5126,
+      "count": 1488,
+      "max": [
+        0.9964867234230042,
+        0.999783456325531,
+        0.9999619722366333,
+        1.0
+      ],
+      "min": [
+        -0.9964867830276489,
+        -0.9934821128845215,
+        -0.9749598503112793,
+        -1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 31456,
+      "componentType": 5126,
+      "count": 1488,
+      "max": [
+        0.9938099980354309,
+        0.9976890087127686
+      ],
+      "min": [
+        0.004310000222176313,
+        0.032169997692108154
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 43360,
+      "componentType": 5126,
+      "count": 1488,
+      "max": [
+        0.9938099980354309,
+        0.9976890087127686
+      ],
+      "min": [
+        0.004310000222176313,
+        0.032169997692108154
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 41064,
+      "componentType": 5125,
+      "count": 7833,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 82896,
+      "componentType": 5126,
+      "count": 2188,
+      "max": [
+        0.7263835072517395,
+        4.738049030303955,
+        7.319231986999512
+      ],
+      "min": [
+        -1.1053835153579712,
+        -0.1255045384168625,
+        -5.446825981140137
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 109152,
+      "componentType": 5126,
+      "count": 2188,
+      "max": [
+        0.9997868537902832,
+        0.9999786615371704,
+        0.9999057054519653
+      ],
+      "min": [
+        -0.9994388818740845,
+        -0.9998565912246704,
+        -0.9999810457229614
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 55264,
+      "componentType": 5126,
+      "count": 2188,
+      "max": [
+        0.9998258352279663,
+        0.9999810457229614,
+        0.9999786615371704,
+        1.0
+      ],
+      "min": [
+        -0.9998258352279663,
+        -0.9998390078544617,
+        -0.9995163083076477,
+        -1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 55264,
+      "componentType": 5126,
+      "count": 2188,
+      "max": [
+        1.092579960823059,
+        0.9874699711799622
+      ],
+      "min": [
+        0.008790000341832638,
+        0.043650031089782715
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 72768,
+      "componentType": 5126,
+      "count": 2188,
+      "max": [
+        1.092579960823059,
+        0.9874699711799622
+      ],
+      "min": [
+        0.008790000341832638,
+        0.043650031089782715
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 72396,
+      "componentType": 5125,
+      "count": 8586,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "Jurassic Radassic (https://sketchfab.com/Radassic)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/dinosaur-hunting-spinosaurus-94e6a1ac7b5a4ee59e3e49d1eaffb66a",
+      "title": "Dinosaur Hunting Spinosaurus"
+    },
+    "generator": "Sketchfab-17.8.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 106740,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 90272,
+      "byteOffset": 106740,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 135408,
+      "byteOffset": 197012,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 90272,
+      "byteOffset": 332420,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 422692,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/Spino_baseColor.png"
+    },
+    {
+      "uri": "textures/Spino_normal.png"
+    },
+    {
+      "uri": "textures/Spino1_baseColor.png"
+    },
+    {
+      "uri": "textures/Spino1_normal.png"
+    },
+    {
+      "uri": "textures/Spino2_baseColor.png"
+    },
+    {
+      "uri": "textures/Spino2_normal.png"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "Spino",
+      "normalTexture": {
+        "index": 1
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.8308205978495098
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "Spino1",
+      "normalTexture": {
+        "index": 3
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 2
+        },
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.8308205978495098
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "Spino2",
+      "normalTexture": {
+        "index": 5
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 4
+        },
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.8308205978495098
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Spinosaurus_Spino_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3,
+            "TEXCOORD_1": 4
+          },
+          "indices": 5,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Spinosaurus_Spino1_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 7,
+            "POSITION": 6,
+            "TANGENT": 8,
+            "TEXCOORD_0": 9,
+            "TEXCOORD_1": 10
+          },
+          "indices": 11,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Spinosaurus_Spino2_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 13,
+            "POSITION": 12,
+            "TANGENT": 14,
+            "TEXCOORD_0": 15,
+            "TEXCOORD_1": 16
+          },
+          "indices": 17,
+          "material": 2,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        0.009999999776482582,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.009999999776482582,
+        0.0,
+        0.0,
+        -0.009999999776482582,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Spinosaurus.fbx"
+    },
+    {
+      "children": [
+        3
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        4,
+        5,
+        6
+      ],
+      "matrix": [
+        100.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        99.99999999999866,
+        1.6292067073209114e-05,
+        0.0,
+        0.0,
+        -1.6292067073209114e-05,
+        99.99999999999866,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Spinosaurus"
+    },
+    {
+      "mesh": 0,
+      "name": "Spinosaurus_Spino_0"
+    },
+    {
+      "mesh": 1,
+      "name": "Spinosaurus_Spino1_0"
+    },
+    {
+      "mesh": 2,
+      "name": "Spinosaurus_Spino2_0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    },
+    {
+      "sampler": 0,
+      "source": 3
+    },
+    {
+      "sampler": 0,
+      "source": 4
+    },
+    {
+      "sampler": 0,
+      "source": 5
+    }
+  ]
+}

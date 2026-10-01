@@ -1,0 +1,11 @@
+Model Information:
+* title:	Indoraptor
+* source:	https://sketchfab.com/3d-models/indoraptor-322c8b36c9544a559e66aeef719a0c52
+* author:	Jupiter Rex 13 (https://sketchfab.com/Dinoboy4216)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Indoraptor" (https://sketchfab.com/3d-models/indoraptor-322c8b36c9544a559e66aeef719a0c52) by Jupiter Rex 13 (https://sketchfab.com/Dinoboy4216) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
