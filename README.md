@@ -56,3 +56,8 @@ Then open: **http://debateresearcher.localhost:5050**
 - Sources come from Wikipedia, Britannica, OpenAlex (university research), Pew/Brookings APIs, and reference databases.
 - Always verify sources before competition use.
 - No API keys required.
+
+
+## Local setup note
+
+Cloned and verified push access on 2026-10-02.
